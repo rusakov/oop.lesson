@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 
 namespace snake_new
@@ -6,25 +7,18 @@ namespace snake_new
 	class MainClass
 	{
 		public static void Main(string[] args)
-		{
-				
-			Point p1 = new Point(1, 3, '#');
-			Point p2 = new Point(4, 5, '*');
-			Point p3 = new Point(12, 10, '⁄');
-			Point p4 = new Point(p3.x * 3, p3.y * 2, '€');
+		{				
+			Point p1 = new Point(1, 3, '*');
+			p1.Draw();
 
-			List<Point> pList = new List<Point>();
+			Point p2 = new Point(4, 5, '#');
+			p2.Draw();
 
-			pList.Add(p1);
-			pList.Add(p2);
-			pList.Add(p3);
-			pList.Add(p4);
+			HorizontalLine line = new HorizontalLine(5, 10, 8, '+');
+			line.Drow();
 
-
-			foreach (var i in pList) {
-				i.Draw();
-			}
-
+			VerticalLine line1 = new VerticalLine(2, 10, 4, '&');
+			line1.Drow();
 		}
 	}
 }
