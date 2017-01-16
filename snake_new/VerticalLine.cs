@@ -2,31 +2,18 @@
 using System.Collections.Generic;
 
 
-namespace snake_new
+namespace snake_new 
 {
-	public class VerticalLine
+	class VerticalLine : Figure 
 	{
-		List<Point> pList;
-
-		public VerticalLine(int yTop, int yBottom, int x, char sym)
+		public VerticalLine(int yTop, int yBottom, int x, char sym) 
 		{
 			pList = new List<Point>();
 
-			for (int y = yTop; y <= yBottom; y++)
-			{
+			for (int y = yTop; y <= yBottom; y++) {
 				Point p = new Point(x, y, sym);
 				pList.Add(p);
 			}
-		}
-
-		public void Drow()
-		{
-
-			foreach (Point p in pList)
-			{
-				p.Draw();
-			}
-
 		}
 	}
 }

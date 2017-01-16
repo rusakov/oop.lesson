@@ -1,24 +1,44 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace snake_new
 {
 	class MainClass
 	{
 		public static void Main(string[] args)
-		{				
-			Point p1 = new Point(1, 3, '*');
-			p1.Draw();
+		{			
 
-			Point p2 = new Point(4, 5, '#');
-			p2.Draw();
+			//Отрисовка линей
+			HorizontalLine lineRight = new HorizontalLine(0, 20, 0, '+');
+			HorizontalLine lineLeft = new HorizontalLine(0, 20, 20, '+');
 
-			HorizontalLine line = new HorizontalLine(5, 10, 8, '+');
-			line.Drow();
+			VerticalLine lineUp = new VerticalLine(0, 20, 0, '&');
+			VerticalLine lineDown = new VerticalLine(0, 20, 20, '&');
 
-			VerticalLine line1 = new VerticalLine(2, 10, 4, '&');
-			line1.Drow();
+			lineRight.Drow();
+			lineLeft.Drow();
+			lineUp.Drow();
+			lineDown.Drow();
+
+			//Отрисовка змей
+			Point p = new Point(2, 2, '*');
+			Snake snake = new Snake(p, 2, Direction.RIGHT);
+			snake.Drow();
+
+			while (true) 
+			{
+				if (Console.KeyAvailable) 
+				{
+					ConsoleKeyInfo key = Console.ReadKey();
+					snake.HandleKey(key.Key);
+				}
+
+				Thread.Sleep(100);
+				snake.Move();
+			
+			}
 		}
 	}
 }
