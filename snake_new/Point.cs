@@ -57,11 +57,15 @@ namespace snake_new
 			Console.Write(sym);
 		}
 
+		internal bool isHit(Point p)
+		{
+			return p.x == this.x && p.y == this.y;
+		}
+
 		public override string ToString()
 		{
 			return x + ", " + y + ", " + sym;
 		}
 
-
-	}
+}
 }
