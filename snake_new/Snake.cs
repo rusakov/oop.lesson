@@ -33,6 +33,20 @@ namespace snake_new
 			head.Draw();
 		}
 
+		internal bool isHitTail()
+		{
+			var head = pList.Last();
+			for (int i = 0; i < pList.Count - 2; i++)
+			{
+				if (head.IsHit(pList[i]))
+				{
+					return true;
+				}
+			}
+
+			return false;
+		}
+
 		public Point GetNextPoint() 
 		{
 			Point head = pList.Last();
@@ -67,7 +81,7 @@ namespace snake_new
 		internal bool eatFood(Point food)
 		{
 			Point head = GetNextPoint();
-			if (head.isHit(food))
+			if (head.IsHit(food))
 			{
 				food.sym = head.sym;
 				pList.Add(food);
