@@ -7,7 +7,7 @@ namespace snake_new
 	{
 		protected List<Point> pList;
 
-		public void Drow()
+		public virtual void Draw()
 		{
 			foreach (Point p in pList)
 			{
@@ -15,5 +15,6 @@ namespace snake_new
 			}
 
 		}
+
 	}
 }
